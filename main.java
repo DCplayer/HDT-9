@@ -44,7 +44,7 @@ public class main {
          * try-catch para leer el diccionario que contiene las palabras
          */
         try{
-            FileInputStream doc2 = new FileInputStream("C:\\Users\\usuario1\\Desktop\\Nueva carpeta\\HDT7\\src\\diccionario.txt");
+            FileInputStream doc2 = new FileInputStream("C:\\Users\\usuario1\\Desktop\\Nueva carpeta\\HDT7\\src\\Spanish.txt");
             DataInputStream ent2 = new DataInputStream(doc2);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(ent2));
             String strLinea;
@@ -66,14 +66,18 @@ public class main {
         {   Association<String,String> valor = new Association<>();
             String linea1;
             int coma = 0;
+            int tipo = 0
             linea1 = palabras.get(i).toLowerCase();
             for(int n = 0; n <linea1.length()-1; n++){
-                    if(Character.toString(linea1.charAt(n)).equals(",")){
-                        coma = n;
-                    }
-                 }
+                if(Character.toString(linea1.charAt(n)).equals(" ")){
+                    coma = n;
+                }
+                if(Character.toString(linea1.charAt(n)).equals("[")){
+                    tipo = n;
+                }
+            }
             valor.setIngles(linea1.substring(0,coma));
-            valor.setEspanol(linea1.substring(coma+1,linea1.length()));
+            valor.setEspanol(linea1.substring(coma+1,tipo));
             tree.addNodo(valor);
         }
         /**

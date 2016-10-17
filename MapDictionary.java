@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author Rafael de Leon 13361
  * @author Diego Castaneda 15151
  */
-public class MapDictionary extends HashMap{
+public class MapDictionary<K,V> extends HashMap<K,V>{
 
     public MapDictionary(int initialCapacity) {
         super(initialCapacity);
